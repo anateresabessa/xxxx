@@ -1,0 +1,47 @@
+Tipo_Destino (ID, Nome, Descricao)
+	PK ID
+
+Destino (ID, Local_Turistico, ID_Localidade, ID_Tipo)
+	PK ID
+
+Pais (ID_Localidade, Nome, Pais)
+	PK ID_Localidade
+
+Cliente (CC, Primeiro_Nome, Ultimo_Nome, Nome_Meio, Profissao, E-mail, Num_Telemovel, Localidade, Rua, Codigo_Postal, Pais)
+	PK CC
+
+Elemento (ID_Viagem, CC_cliente, CC_cliente_pagador)
+	PK ID_Viagem, CC_cliente
+
+Registo_Viagem (ID_Viagem, ID_Destino, Data, Data_pagamento, Hora_PartidaPrev, Hora_PartidaReal, Hora_ChegadaPrev, Hora_ChegadaReal, Preco_Viagem, Preco_Promocao)
+	PK ID_Viagem
+
+Altura (ID_Viagem, Epoca, Descricao)
+	PK ID_Viagem
+
+
+
+INSTÂNCIAS DE RELAÇÃO r :
+r(Tipo_Destino)={(1235, Áreas Verdes, Predomínio de vegetação em meio urbano Zonas de recreio e lazer  Contribuem para a absorção da água da chuva), (3473, 
+Montanhoso, Elevação no relevo com uma altura de 300m ou mais em relação à área ao seu redor Com muita humidade e temperaturas muito baixas),(4569, Urbano, Região da 
+cidade, definido como o conjunto que integra e sobrepõe as diferentes atividades Considerado como o território das práticas políticas, o local da produção e reprodução 
+da sociedade),(5750, Praia, Zona à beira-mar onde é possível tomar banhos de sol e de mar),(3025, Neve,  Zona de corrência meteorológica que consiste na precipitação 
+de flocos formados por cristais de gelo Frio Intenso)}
+
+r(Destino)={(7454, Budapeste, 6325, 3473), (6587, Oslo, 3367, 1235), (4523, Xangai, 8820, 5750), (3257, Madrid, 2335, 4569), (5233, Moscovo, 4445, 3025)}
+
+r(Pais)={(2335, Madrid, Espanha), (3367, Oslo, Dinamarca), (6325, Budapeste, Hungria), (4445, Moscovo, Rússia), (8820, Xangai, China)}
+
+r(Cliente)={(44255638, André, Moreira, Silva, Programador, andrremorreirra@gmail.com, 6335874110, Leon, Rue Napoleón, 4521-988, França),(77856750, Renato, Silva,
+Almeida, Programador, renato_luis@hotmail.com, 267752336, Santiago, Terra Branca, 2324-122, Cabo Verde), (22300547, Hugo, Rodrigues, Fortes, Governador, 
+joséfortes@sapo.pt, 233368820, São Vicente, Chã da Marinha, 3255-785, Cabo Verde), (88965744, Cláudia, Camelo, Pacheco, Editora, claudiamc_pacheco@gmail.com,
+910023599, Porto, Rua Jaime Brasil, 4233-223, Portugal), (23354711, Almira, Santos, Coelho, Engelheira, almira.coelho4@hotmail.com, 933556870, Travessa dos Perdidos,
+2331-023, Portugal)}
+
+r(Elemento)={(44255, 77856750, 77856750), (78527, 22300547, 77856750), (30270, 23354711, 23354711), (33321, 44255638, 44255638), (00035, 88965744, 88965744)}
+
+r(Registo_Viagem)={(00035, 3257, 20/10/2017, 02/09/2016, 23:55, 23:59, 00:55, 01:00, 84€, 84€),(30270, 4523, 02/05/2018, 19/01/2018, 09:20, 10:10, 18:40, 20:02,
+250€, 220€), (33321, 7454, 15/09/2019, 24/04/2019, 15:00, 15:01, 19:20, 19:25, 326€, 326€), (44255, 5233, 31/08/2018, 27/01/2018, 20:35, 20:43, 03:50, 04:08, 181€, 
+181€), (78527, 6587, 21/12/2019, 08/01/2019, 03:44, 05:05, 13:30, 15:52, 225€, 190€)}
+
+r(Altura)={(00035, Outono, Outubro), (30270, Primavera, Maio), (33321, Verão, Setembro), (44255, Verão, Agosto), (78527, Natal, Dezembro)}
